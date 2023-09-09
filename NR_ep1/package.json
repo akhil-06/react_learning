@@ -4,6 +4,8 @@
   "description": "React tutorial by AS",
   "main": "App.js",
   "scripts": {
+    "start":"parcel index.html",
+    "buld": "arcel build index.html",
     "test": "jest"
   },
   "author": "",

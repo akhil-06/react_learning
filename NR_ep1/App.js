@@ -1,28 +1,22 @@
 import React from "react";
 import ReactDOM  from "react-dom/client";
 
-const parent = React.createElement(
-  "div",
-  { id: "parent" },
-  React.createElement(
-    "div",
-    { id: "child" },
-    [React.createElement("h1", {}, "I am Akhil Sharma tag"),
-    React.createElement("h2", {}, "I am h2 tag")]
-  )
-);
 
-// const heading = React.createElement(
-//   "h1",
-//   {
-//     id: "heading1",
-//     xyz: "abc",
-//   },
-//   "Hello world rom React!!"
-// );
+const heading = React.createElement("h1", {id:"heading1"}, "This is me Akhil Sharma")
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(heading);
 
-// console.log(heading);
-console.log(parent);
-const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(heading);
-root.render(parent);
+
+
+// JSX(transpiled before t reaches Js) => parcel => babel is doing
+
+
+//JSX => Babel transpiles it to React.createElement => ReactElement - JS Object => HTMLElement(render)
+const JSXheading = <h1>Akhil form JSX</h1>
+//if more than one line tag enclose in ()
+const heading2 = (<h1>
+  Hello my name is akhil sharma, I am from Haryana!!!!
+</h1>)
+
+console.log(JSXheading);
+root.render(JSXheading);
