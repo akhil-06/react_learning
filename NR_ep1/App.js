@@ -1,33 +1,57 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom/client";
 
-// JSX(transpiled before t reaches Js) => parcel => babel is doing
 
-//JSX => Babel transpiles it to React.createElement => ReactElement - JS Object => HTMLElement(render)
-// const JSXheading = <h1>Akhil form JSX</h1>
-//if more than one line tag enclose in ()
-const heading2 = (<h1>
-  Hello my name is akhil sharma, I am from Haryana!!!!
-</h1>)
-// console.log(JSXheading);
+const Header = () => {
+  return (
+    <div className="header">
+      <div className="logo-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOFLQ6ovowvFag1LhbIVJLDCoP0jOIRGAWCg&usqp=CAU" className="logo"/>
+      </div>
 
-const HeadingComponent = () => {
-  return <h1>This is functional Component</h1>;
-};
-
-
-const TitleComponent = () => {
-  return (<h1>This is title component 😇</h1>)
+      <div className="nav-items">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="">About Us</a></li>
+          <li><a href="">Contact us</a></li>
+          <li>Cart</li>
+        </ul>
+      </div>
+    </div>
+  )
 }
-const HeadingComponent2 = () => (
-  <div id="container">
-    <TitleComponent/>
-    <h1 className="heading1">This is functional Component</h1>
-  </div>
-);
 
+const RestrauntCard = () => {
+  return (
+    <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
+      <img className="res-logo" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/ns68mxfgkgsrrs3wngwz" alt="food image"/>
+      <h3>Annapoorna</h3>
+      <h4>Biryani, North India</h4>
+      <h4>4.7 Stars</h4>
+      <h4>38 Minutes</h4>
+    </div>
+  )
+}
+
+const Body = () => {
+  return (
+    <div className="body">
+      <div className="search">
+        Search
+      </div>
+      <div className="res-container">
+        <RestrauntCard/>
+      </div>
+    </div>
+  )
+}
+
+const AppLayout = () => {
+  return (<div className="app">
+    <Header/>
+    <Body/>
+  </div>)
+}
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(heading2);
-root.render(<HeadingComponent2/>)
+root.render(<AppLayout/>)
 
-// React Component
