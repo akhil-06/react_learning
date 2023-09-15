@@ -36,6 +36,7 @@ const Body = () => {
     setListOfRestraunt(resData); 
   };
 
+  //conditional rendering
   if(listOfRestaurants.length === 0){
     return <Shimmer />
   }
