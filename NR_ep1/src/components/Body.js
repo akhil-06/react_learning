@@ -6,6 +6,12 @@ import Shimmer from "./Shimmer";
 const Body = () => {
   // Local State Variable - Super powerful variable
   const [listOfRestaurants, setListOfRestraunt] = useState([]);
+
+  const [filterRestraunt, setfilterRestraunt] = useState([]);
+
+
+  const [searchText, setSearchText] = useState("");
+
   //  console.log("hello");
   useEffect(() => {
     // console.log("Use effect Rendered!!!");
@@ -34,6 +40,7 @@ const Body = () => {
   const resData = await checkJsonData(jsonData);
     console.log(resData);
     setListOfRestraunt(resData); 
+    setfilterRestraunt(resData); 
   };
 
   //conditional rendering
@@ -44,6 +51,15 @@ const Body = () => {
     return (      
       <div className="body">
         <div className="filter">
+          <div className="search">
+            <input className="search-box" type="text" value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}/>
+            <button onClick={()=>{
+              console.log(searchText);
+              const filteredRestraunt = listOfRestaurants.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()))
+
+              setfilterRestraunt(filteredRestraunt);
+            }}>Search</button>
+          </div>
           <button className="filter-btn" onClick={() => {
             // console.log("hello")
             const filteredList = listOfRestaurants.filter(
@@ -55,7 +71,7 @@ const Body = () => {
             </button>
         </div>
         <div className="res-container">
-        {listOfRestaurants.map((restaurant) => (
+        {filterRestraunt.map((restaurant) => (
             <RestrauntCard key ={restaurant.info.id} resData={restaurant} />
           ))}
         </div>
